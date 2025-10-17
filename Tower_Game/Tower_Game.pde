@@ -271,24 +271,6 @@ void drawTargetLine() {
   text("TARGET", width - 45, targetY - 11);
 }
 
-// Draw distant buildings in background
-void drawDistantBuildings() {
-  fill(180, 200, 220, 100); // Very faded blue-gray
-  noStroke();
-  
-  // Building 1 - left side
-  rect(50, 150, 60, 250);
-  
-  // Building 2 - slightly taller
-  rect(150, 100, 80, 300);
-  
-  // Building 3 - right side
-  rect(400, 180, 70, 220);
-  
-  // Building 4 - far right, shorter
-  rect(520, 200, 50, 200);
-}
-
 // Draw simple clouds
 void drawClouds() {
   fill(255, 255, 255, 180); // Semi-transparent white
