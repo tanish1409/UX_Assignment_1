@@ -159,11 +159,35 @@ void calculateTowerHeight() {
     return;
   }
 
-  float minY = height; // topmost block's position
+  float minY = height; // topmost block's position (lowest y-coordinate)
+  
+  // Find the highest resting block's position (minY)
   for (Block b : blocks) {
+    // Only consider blocks that are either dropped AND sleeping (at rest)
+    // OR blocks that have not been fully dropped yet (which shouldn't happen 
+    // unless you change the logic, but this is the safest check).
+    
+    // The key condition is to ignore any block that is currently 'awake' 
+    // (i.e., falling, sliding, or spinning).
+    if (b.body.isAwake()) {
+      continue; // Skip any block that is actively moving/unstable
+    }
+    
+    // If the block is stable/sleeping, check its height
     Vec2 pos = box2d.getBodyPixelCoord(b.body);
-    if (pos.y < minY) minY = pos.y;
+    if (pos.y < minY) {
+      minY = pos.y;
+    }
   }
+
+  // If after checking all sleeping blocks, minY is still 'height', it means
+  // either the list is empty (handled above) or all blocks are currently moving.
+  if (minY == height) {
+     currentHeight = 0; // Or keep currentHeight as is, but resetting is cleaner.
+     // In your game, if all blocks are moving, the tower has no stable height.
+     return;
+  }
+
   // Convert from screen coordinates (top-down) to height-from-ground
   currentHeight = height - minY;
 }
