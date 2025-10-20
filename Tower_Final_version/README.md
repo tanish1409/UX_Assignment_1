@@ -30,6 +30,7 @@ The player drops blocks from a moving crane and tries to stack them as high and 
 - Each level becomes slightly harder with more blocks and higher targets.
 
 #Example Output Screenshots 
+
 <img width="734" height="736" alt="image" src="https://github.com/user-attachments/assets/a36fd7ba-03d0-433a-bf41-ca9db28db2a4" />
 
 When the game is first run. 
