@@ -13,7 +13,7 @@ The player drops blocks from a moving crane and tries to stack them as high and 
 - Game Over and Level Complete states with UI overlays
 
 #How to Run
-1. Open Tower_Final_version.pde in the Processing IDE.  
+1. Open Tower_Stacking_Game.pde in the Processing IDE.  
 2. Make sure the Shiffman Box2D library is installed:
    - Go to Sketch -> Import Library -> Manage Libraries
    - Search for “Box2D for Processing” and install it.  
